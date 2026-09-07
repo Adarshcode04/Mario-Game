@@ -7,11 +7,11 @@ let mario = document.querySelector(".mario")
 let gameContainerWidth = game_container.offsetWidth;
 
 /** Basic functions : 
-     * Jump/fall ✅
-     * move left ✅
-     * move right ✅
-     * move obstacle ✅
-     * collision ✅
+     * Jump/fall 
+     * move left 
+     * move right 
+     * move obstacle 
+     * collision 
 */
 
 let isJumping = false;
