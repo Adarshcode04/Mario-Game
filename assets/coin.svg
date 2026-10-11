@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40" height="40">
+  <!-- Outer Gold Rim -->
+  <circle cx="20" cy="20" r="18" fill="#FFD700" stroke="#B8860B" stroke-width="2.5"/>
+  <!-- Inner Rim -->
+  <circle cx="20" cy="20" r="14" fill="#FFA500"/>
+  <!-- Center Coin Oval with shine -->
+  <ellipse cx="20" cy="20" rx="7" ry="12" fill="#FFD700" stroke="#B8860B" stroke-width="1.5"/>
+  <rect x="18" y="11" width="4" height="18" rx="2" fill="#FFFBE6"/>
+</svg>

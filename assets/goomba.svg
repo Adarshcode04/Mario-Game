@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Feet -->
+  <ellipse class="goomba-foot-left" cx="20" cy="56" rx="14" ry="7" fill="#1C1510" stroke="#000" stroke-width="1.5"/>
+  <ellipse class="goomba-foot-right" cx="44" cy="56" rx="14" ry="7" fill="#1C1510" stroke="#000" stroke-width="1.5"/>
+  <!-- Stem/Body -->
+  <path d="M22,36 C18,50 20,53 26,53 L38,53 C44,53 46,50 42,36 Z" fill="#FFE0B2" stroke="#000" stroke-width="2"/>
+  <!-- Cap / Head -->
+  <path d="M8,36 C4,20 18,5 32,5 C46,5 60,20 56,36 C52,43 12,43 8,36 Z" fill="#9C3A14" stroke="#000" stroke-width="2.5"/>
+  <!-- Eyebrows (angry slant) -->
+  <polygon points="15,20 28,25 27,22 15,17" fill="#000"/>
+  <polygon points="49,20 36,25 37,22 49,17" fill="#000"/>
+  <!-- Eyes -->
+  <ellipse cx="23" cy="27" rx="4.5" ry="6.5" fill="#FFF" stroke="#000" stroke-width="1"/>
+  <ellipse cx="41" cy="27" rx="4.5" ry="6.5" fill="#FFF" stroke="#000" stroke-width="1"/>
+  <ellipse cx="25" cy="27" rx="2" ry="4.5" fill="#000"/>
+  <ellipse cx="39" cy="27" rx="2" ry="4.5" fill="#000"/>
+  <!-- Fangs -->
+  <polygon points="20,40 23,34 26,40" fill="#FFF" stroke="#000" stroke-width="1"/>
+  <polygon points="38,40 41,34 44,40" fill="#FFF" stroke="#000" stroke-width="1"/>
+</svg>

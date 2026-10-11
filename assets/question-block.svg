@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50" height="50">
+  <!-- Outer Bevel Base -->
+  <rect x="1" y="1" width="48" height="48" rx="4" fill="#E67E22" stroke="#000" stroke-width="2.5"/>
+  <!-- Inner Face -->
+  <rect x="5" y="5" width="40" height="40" fill="#F39C12"/>
+  <!-- Highlight Top/Left -->
+  <polygon points="5,5 45,5 41,9 9,9 9,41 5,45" fill="#F1C40F"/>
+  <!-- Shadow Bottom/Right -->
+  <polygon points="45,5 45,45 5,45 9,41 41,41 41,9" fill="#B9770E"/>
+  <!-- Corner bolts/rivets -->
+  <circle cx="9" cy="9" r="2.2" fill="#000"/>
+  <circle cx="41" cy="9" r="2.2" fill="#000"/>
+  <circle cx="9" cy="41" r="2.2" fill="#000"/>
+  <circle cx="41" cy="41" r="2.2" fill="#000"/>
+  <!-- Question Mark -->
+  <path d="M19,16 C19,13 22,11 25,11 C28.5,11 31,13 31,16 C31,18.5 29,20 27,21.5 C25,23 24,25 24,28 L27,28 C27,26 28,24.8 29.5,23.5 C31.5,22 34,19.5 34,16 C34,11 29.5,8 25,8 C20,8 16,11.5 16,16 Z" fill="#FFFFFF" stroke="#000" stroke-width="1.2"/>
+  <rect x="23.5" y="32" width="4.5" height="4.5" rx="1" fill="#FFFFFF" stroke="#000" stroke-width="1.2"/>
+</svg>

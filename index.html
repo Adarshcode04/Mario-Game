@@ -2,47 +2,160 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Mario Game</title>
-
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Super Mario Runner</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
-    <script src="script.js"></script>
-    <div class="game-container">
-      <!-- Score -->
-      <div class="score">
-        <h1>Score : 0</h1>
+    <div class="game-container" id="gameContainer">
+      <div class="sky-layer" id="skyLayer"></div>
+
+      <div class="hills-layer" id="hillsLayer"></div>
+      <header class="hud">
+        <div class="hud-group">
+          <div class="hud-item">
+            <span class="hud-label">MARIO</span>
+            <span class="hud-val" id="scoreDisplay">000000</span>
+          </div>
+
+          <div class="hud-item">
+            <span class="hud-label">COINS</span>
+            <span class="hud-val coins-val">
+              <img src="assets/coin.svg" alt="Coin" class="hud-coin-icon" />
+              <span id="coinsDisplay">x00</span>
+            </span>
+          </div>
+        </div>
+
+        <div class="hud-group">
+          <div class="hud-item">
+            <span class="hud-label">TOP</span>
+            <span class="hud-val" id="highScoreDisplay">000000</span>
+          </div>
+
+          <div class="hud-item">
+            <span class="hud-label">LIVES</span>
+            <div class="lives-container" id="livesContainer">
+              <span class="life-heart">❤️</span>
+              <span class="life-heart">❤️</span>
+              <span class="life-heart">❤️</span>
+            </div>
+          </div>
+
+          <div class="hud-buttons">
+            <button class="icon-btn" id="soundBtn" title="Toggle Sound (M)">
+              🔊
+            </button>
+            <button class="icon-btn" id="pauseBtn" title="Pause Game (P)">
+              ⏸️
+            </button>
+            <button
+              class="icon-btn"
+              id="fullscreenBtn"
+              title="Toggle Fullscreen (F)"
+            >
+              ⛶
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <div class="entities-layer" id="entitiesLayer"></div>
+      <div class="mario" id="mario">
+        <img src="4.png" alt="Mario" id="marioImg" />
       </div>
 
-      <!-- Mario -->
-      <div class="mario">
-        <img src="4.png" alt="Mario" />
+      <div class="platform" id="platform"></div>
+      <div class="overlay-screen" id="startScreen">
+        <div class="modal-card">
+          <h1 class="modal-title">SUPER MARIO<br />RUNNER</h1>
+          <p class="modal-subtitle">CLASSIC ARCADE ADVENTURE</p>
+
+          <div class="controls-guide">
+            <p><strong>CONTROLS:</strong></p>
+            <p>
+              <span class="key-tag">A</span> / <span class="key-tag">D</span> or
+              <span class="key-tag">◄</span> <span class="key-tag">►</span> :
+              Move Left / Right
+            </p>
+            <p>
+              <span class="key-tag">SPACE</span> or
+              <span class="key-tag">W</span> or <span class="key-tag">▲</span> :
+              Jump (Hold for higher!)
+            </p>
+            <p>
+              <span class="key-tag">P</span> : Pause &nbsp;|&nbsp;
+              <span class="key-tag">M</span> : Mute Audio
+            </p>
+            <p style="margin-top: 6px; color: #ffeb3b">
+              ⭐ <strong>PRO TIPS:</strong> Stomp Goombas from above! Hit ?
+              blocks with Mario's head for coins!
+            </p>
+          </div>
+
+          <button class="btn-primary" id="startBtn">START GAME</button>
+        </div>
       </div>
 
-      <!-- Pipe -->
-      <div class="obstacle">
-        <img src="23.png" alt="Pipe" />
+      <div class="overlay-screen hidden" id="pauseScreen">
+        <div class="modal-card">
+          <h2 class="modal-title" style="color: #ffcc00">GAME PAUSED</h2>
+          <p class="modal-subtitle">Take a breather!</p>
+          <div style="display: flex; gap: 15px; margin-top: 10px">
+            <button class="btn-primary" id="resumeBtn">RESUME</button>
+            <button class="btn-secondary" id="restartFromPauseBtn">
+              RESTART
+            </button>
+          </div>
+        </div>
       </div>
 
-      <!-- Ground -->
-      <div class="platform">
-        <img src="33.jpeg" alt="ground" />
-        <img src="33.jpeg" alt="ground" />
-        <img src="33.jpeg" alt="ground" />
-        <img src="33.jpeg" alt="ground" />
-        <img src="33.jpeg" alt="ground" />
-        <img src="33.jpeg" alt="ground" />
-        <img src="33.jpeg" alt="ground" />
-        <img src="33.jpeg" alt="ground" />
-        <img src="33.jpeg" alt="ground" />
-        <img src="33.jpeg" alt="ground" />
-        <img src="33.jpeg" alt="ground" />
-        <img src="33.jpeg" alt="ground" />
-        <img src="33.jpeg" alt="ground" />
+      <div class="overlay-screen hidden" id="gameOverScreen">
+        <div class="modal-card">
+          <h1 class="modal-title">GAME OVER</h1>
+          <div id="newRecordBanner" class="new-record-badge hidden">
+            🎉 NEW HIGH RECORD! 🎉
+          </div>
+
+          <div class="stats-grid">
+            <div class="stat-box">
+              <span class="stat-title">FINAL SCORE</span>
+              <span class="stat-number" id="finalScoreVal">0</span>
+            </div>
+            <div class="stat-box">
+              <span class="stat-title">COINS COLLECTED</span>
+              <span class="stat-number" id="finalCoinsVal">0</span>
+            </div>
+            <div class="stat-box" style="grid-column: span 2">
+              <span class="stat-title">ALL-TIME BEST</span>
+              <span class="stat-number" style="color: #ffcc00" id="finalBestVal"
+                >0</span
+              >
+            </div>
+          </div>
+
+          <button class="btn-primary" id="restartBtn">PLAY AGAIN</button>
+        </div>
+      </div>
+
+      <div class="mobile-controls" id="mobileControls">
+        <div class="touch-cluster">
+          <button class="touch-btn" id="touchLeft" aria-label="Left">◀</button>
+          <button class="touch-btn" id="touchRight" aria-label="Right">
+            ▶
+          </button>
+        </div>
+        <div class="touch-cluster">
+          <button class="touch-btn jump-btn" id="touchJump" aria-label="Jump">
+            JUMP
+          </button>
+        </div>
       </div>
     </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
